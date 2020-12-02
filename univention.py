@@ -5,8 +5,12 @@ from ldap3 import Server, Connection, ALL
 
 
 def acs():
-    with open("creds.json") as f:
-        credentials = json.load(f)
+    if os.path.exists("creds-local.json"):
+        with open("creds-local.json") as f:
+            credentials = json.load(f)
+    else:
+        with open("creds.json") as f:
+            credentials = json.load(f)
     return credentials
 
 

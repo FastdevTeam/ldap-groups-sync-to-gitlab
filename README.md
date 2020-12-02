@@ -7,11 +7,38 @@ The main purpose of this script is to keep the groups and users in the GitLab up
 we use [Vault](https://www.vaultproject.io/) to encrypt credentials, but feel free to use any other config file or remote system to store data
 
 # Preparations:
-1. pip install -r requirements.txt
-2. if you aren't using Vault:<br>
-    2.1. change the value<br>
-    2.2. Key "ucs_search_query" - just a query string in format "https://{HOST}/univention/udm/groups/group/{your search property}"<br>
-    2.3. Key "admins" - those guys who should be ignored by the script, just a string in the format - "user1,user2,user3"<br>
+If you aren't using Vault:
+* edit the values in _creds.json_ file
+* Key "ucs_search_query" - just a query string in format "https://{HOST}/univention/udm/groups/group/{your search property}"
+* Key "admins" - those guys who should be ignored by the script, just a string in the format - "user1,user2,user3"
 
 # How To Run:
-1. just run "python3 main.py --help" to see all available commands
+Manually:
+```
+pip install -r requirements.txt
+```
+```
+python3 cli.py --help
+```
+
+Run via Docker and Make:
+- show expected result after main migration 
+```
+make build show_pre_migration
+```
+- run the main migration:
+```
+make all
+```
+- show the difference between equal LDAP - Gitlab existing groups
+```
+make build show_equals
+```
+- show groups that aren't in LDAP 
+```
+make build show_diff
+```
+- show all commits older than 3 years
+```
+make build show_last_commit 
+```
