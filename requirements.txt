@@ -1,0 +1,7 @@
+requests==2.24.0
+prettytable==1.0.0
+gitlab==1.0.2
+PTable==0.9.2
+python-gitlab==2.5.0
+six==1.15.0
+ldap3==2.8.1
