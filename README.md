@@ -13,7 +13,7 @@ If you aren't using Vault:
 * Key "admins" - those guys who should be ignored by the script, just a string in the format - "user1,user2,user3"
 
 # How To Run:
-Manually:
+## Manually:
 ```
 pip install -r requirements.txt
 ```
@@ -21,7 +21,7 @@ pip install -r requirements.txt
 python3 cli.py --help
 ```
 
-Run via Docker and Make:
+## Run via Docker and Make:
 - show expected result after main migration 
 ```
 make build show_pre_migration
